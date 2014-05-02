@@ -36,6 +36,42 @@ background-color:black;
     {
         background-position: 0 -32px;
     }
+.k-i-arrows-n
+    {
+        background-position: 0 -32px;
+    }
+.k-i-seek-w
+{
+    background-position: 0 -111px;
+    }
+.k-i-arrow-w{
+background-position: 0 -174px;
+}
+.k-i-seek-e{
+background-position: 0 -79px;
+}
+.k-i-arrow-e{
+background-position: 0 -143px;
+}
+
+.k-link{
+background-color: rgb(255, 252, 252);
+padding: 4px;
+border: 1px solid black;
+border-radius: 13px;
+height: 30px;
+    margin-left: 2px;
+}
+
+.k-i-number
+{
+    padding: 4px 7px 4px 7px;
+    
+}
+.k-link:hover{
+ background-color: rgb(216, 210, 210);
+    text-decoration: none;
+}
     .k-header
     {
     overflow: hidden;

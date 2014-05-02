@@ -33,10 +33,26 @@
                       }
                        table+="</tr>";
                    }
+                    table+=option.GetFooter();
                     table+="</table>";
                     $("#table").html(table);                
             },
                 
+            GetFooter:function(){
+            var str='<tr><td colspan="'+option.columns.length+'">'+
+                '<a href="#" title="ilk sayfaya" class="k-link k-pager-nav k-pager-first k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-seek-w">Go to the first page</span></a>'+
+            '<a href="#" title="önceki sayfa" class="k-link k-pager-nav  k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-arrow-w">Go to the previous page</span></a>';
+                for(var i=0;i<option.selectedDataSource.length;i++)
+                {
+                    str+='<a tabindex="-1" href="#" class="k-i-number k-link" data-page="'+i+'">'+i+'</a>';
+                }
+                
+                
+                str+='<a href="#" title="sonraki sayfa" class="k-link k-pager-nav" data-page="2" tabindex="-1"><span class="k-icon k-i-arrow-e">Go to the next page</span></a><a href="#" title="son sayfa" class="k-link k-pager-nav k-pager-last" data-page="10" tabindex="-1"><span class="k-icon k-i-seek-e">Go to the last page</span></a>';
+            str+='</td></tr>';
+            
+                return str;
+            },
            GetheaderClass:function (){
             var rt='grHeader';
             return option.headerClass!=''?option.headerClass:rt;
