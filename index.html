@@ -1,0 +1,62 @@
+ <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="grid.js"></script>
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="grid.css" rel="stylesheet">
+<script>
+    var articles = [
+    { 
+        "title":"Title 1",
+        "url":"URL 4",
+        "categories":["jQuery"],
+        "tags":["jquery","json","$.each"]
+    },
+    {
+        "title":"Title 2",
+        "url":"URL 3",
+        "categories":["Java"],
+        "tags":["java","json","jquery"]
+    },
+        {
+        "title":"Title 3",
+        "url":"URL 2",
+        "categories":[".Net"],
+        "tags":["java","json","jquery"]
+    }
+];
+    var opt;
+    $(document).ready(function(){
+       opt= $("#table").CreateGrid({
+        dataSource:articles,
+        columns:[
+            {
+                    field:"title",
+                     title:"Title",
+            },{
+                  field:"url",
+                 title:"Url",
+                
+            }
+            ,{
+                  field:"categories",
+                 title:"Kategory",
+                
+            }
+            ,{
+                  field:"tags",
+                 title:"Tags",
+                
+            }
+        ],
+            class:'table table-bordered',
+        rowClass:'deneme',
+        
+    });
+    });
+    
+</script>
+<div id="table" >
+
+    
+    
+
+</div>

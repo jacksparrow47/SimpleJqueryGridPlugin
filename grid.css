@@ -1,0 +1,49 @@
+.grTable{
+
+
+}
+.grHeader
+    {
+    text-align: left;
+    padding: 5px 0px 0px 5px;
+    
+    }
+.grRow{
+    padding: 5px 0px 0px 10px;
+}
+.deneme{
+background-color:black;
+    color: white;
+}
+    .k-icon
+    {
+    
+        background-image: url('images/sprite.png');
+        border-color: transparent;
+        opacity: .9;
+        position: static;
+        vertical-align: text-top;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        font-size: 0;
+        line-height: 0;
+        text-align: center;
+    }
+    .k-i-arrows-s
+    {
+        background-position: 0 -32px;
+    }
+    .k-header
+    {
+    overflow: hidden;
+border-style: solid;
+border-width: 0 0 1px 1px;
+padding: .5em .6em .4em .6em;
+font-weight: normal;
+white-space: nowrap;
+text-overflow: ellipsis;
+        background-color:gray;
+    }
