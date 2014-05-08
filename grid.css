@@ -44,8 +44,19 @@ background-color:black;
 {
     background-position: 0 -111px;
     }
+
+.k-filter
+{
+    background-position: -32px -80px;
+    float: right;
+    }
 .k-i-arrow-w{
 background-position: 0 -174px;
+}
+.k-pages{
+    max-width: 60px;
+    height: :25px;
+    margin-left: 20px;
 }
 .k-i-seek-e{
 background-position: 0 -79px;
