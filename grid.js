@@ -112,7 +112,7 @@
             return sl;
         },
          GetUsableDataSource:function(index){
-            option.selectedDataSource=new Array();
+             option.selectedDataSource=new Array();
              option.tempDataSource=option.GetFilterDatasource();
              var pageSize=option.GetPages(option.tempDataSource);
              if(pageSize==1)
@@ -140,11 +140,13 @@
              return option.selectedDataSource;
          },
         GetFilterDatasource:function(){//filter datasource and return new datasource(tam değil devam)
-            var usableDataSource=option.tempDataSource.length==0?option.dataSource:option.tempDataSource;
+            var usableDataSource=option.dataSource;//option.tempDataSource.length==0?option.dataSource:option.tempDataSource;
             var temp=new Array();var k=0;
-            for(var i=0;i<_filterArray.length;i++)
+            
+            for(var j=0;j<usableDataSource.length;j++)
             {
-                for(var j=0;j<usableDataSource.length;j++)
+                var isadd=true;
+                for(var i=0;i<_filterArray.length;i++)
                 {
                     var column=option.columns[_filterArray[i].columnId].field;
                     var field1=false;
@@ -156,7 +158,7 @@
                         field2=true;
                     if(!field1 && field2)
                         actionStart=option.FilterField(usableDataSource[j][column],_filterArray[i].fisrtActionType,_filterArray[i].firstValue);
-                    else if(filed1 && !field2)
+                    else if(field1 && !field2)
                         actionStart=option.FilterField(usableDataSource[j][column],_filterArray[i].lastActionType,_filterArray[i].lastValue);
                     else if(!field1 && !field2)
                     {
@@ -167,11 +169,13 @@
                         else
                             actionStart=(first || two);
                     }
-                    if(actionStart)
+                    if(!actionStart)
+                        isadd=false;
+                }
+                if(isadd)
                     {
                         temp[k]=usableDataSource[j];
                         k++;
-                    }
                 }
             }
             if(_filterArray.length==0)
