@@ -44,7 +44,20 @@ background-color:black;
 {
     background-position: 0 -111px;
     }
-
+.filterform{
+width: 250px;
+    height: :300px;
+    position:absolute;
+    display:none;
+}
+.filterformShow{
+display:block;
+    background-color:rgb(230, 228, 228);
+    padding:5px;
+    width: 200px;
+    height: 250px;
+    z-index: 999999;
+}
 .k-filter
 {
     background-position: -32px -80px;
