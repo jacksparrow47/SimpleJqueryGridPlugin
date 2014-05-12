@@ -5,6 +5,7 @@
        var _spann="<span class='k-icon k-i-arrow-n'></span>";
         var _spanfilter="<span class='k-icon k-filter'></span>";
       var _filterArray=new Array();
+      var _htmlobject=this;
         option = $.extend({
             dataSource:new Array(),
             selectedDataSource:new Array(),
@@ -20,6 +21,7 @@
             tempDataSource:new Array(),
             pageble:true,
             load:function(index){
+                option.GetDataSource();
                 option.selectedDataSource=option.GetUsableDataSource(index);
             var table="<table class='"+option.class+"'>";
                     for(var i=0;i<option.columns.length;i++)
@@ -42,7 +44,9 @@
                    }
                     table+=option.GetFooter();
                     table+="</table>";
-                    $("#table").html(table);                
+                    //$("#table").html(table);   
+                    _htmlobject.html(table);  
+                
             },
                 
             GetFooter:function(){
@@ -62,6 +66,39 @@
             str+='</td></tr>';
             
                 return str;
+            },
+            GetDataSource:function(){
+                if(option.dataSource.length>0)
+                    return option.dataSource;
+                if($(_htmlobject).prop('tagName').toLowerCase()=="table")
+                {
+                    option.columns=new Array();
+                    option.dataSource=new Array();
+                    var firstTr=$(_htmlobject).children("tbody").children("tr").eq(0);
+                    var row=$(_htmlobject).children("tbody").children("tr");
+                    var headertag=$(firstTr).children("td").length<=0?"th":"td";
+                    var headers=$(firstTr).children(headertag);
+                    for(var i=0;i<headers.length;i++)
+                    {
+                        var obj=new Object();
+                        obj.title=$(headers).eq(i).text();
+                        obj.field="field"+i;
+                        option.columns.push(obj);
+                    }
+                    for(var i=1;i<row.length;i++)
+                    {
+                        var td=$(row).eq(i).children("td");
+                         var obj=new Object();
+                        for(var j=0;j<option.columns.length;j++)
+                        {
+                           
+                            obj[option.columns[j].field]=$(td).eq(j).text();
+                            
+                        }
+                        option.dataSource.push(obj);
+                    }
+                }
+               
             },
            GetheaderClass:function (){
             var rt='grHeader';
@@ -233,7 +270,9 @@
             
         },option);
        
+  //option.GetDataSource();
         option.load(0);
+ 
         $(".k-sorter").live("click",function(){
            var span=$(this).children(".k-i-arrow-s");
             var index=$(this).attr("id");
@@ -395,6 +434,8 @@
         }
        return option;
      }
+     
    
 }( jQuery ));
+
 

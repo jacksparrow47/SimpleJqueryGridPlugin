@@ -31,8 +31,10 @@
         "tags":["jalva","json","jquery"]
     }
 ];
-    var opt;
+    var opt;var tr1;
     $(document).ready(function(){
+        tr1=$("#table2").children("tbody").children("tr").eq(0);
+       
        opt= $("#table").CreateGrid({
         dataSource:articles,
         columns:[
@@ -60,12 +62,43 @@
            pageSize:2,
         
     });
+        /*opt2= $("#table2").CreateGrid({
+       
+        class:'table table-bordered',
+        rowClass:'deneme',
+           pageSize:2,
+        
+    });*/
     });
     
 </script>
+
 <div id="table" >
 
     
-    
-
 </div>
+
+<!--<table id="table2">
+<tr>
+    <th>
+        header 1
+    </th>
+     <th>
+         header 2
+    </th>
+     <th>
+         header 3
+    </th>
+</tr>
+    <tr>
+    <td>
+        row 1
+    </td>
+     <td>
+         row 2
+    </td>
+     <td>
+         row 3
+    </td>
+</tr>
+</table>-->
