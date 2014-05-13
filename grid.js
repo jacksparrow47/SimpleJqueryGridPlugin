@@ -125,12 +125,16 @@
           GetPageSelect:function(){
               if(option.pageble){
                 option.pages=(option.pages.length==0 || option.pages==undefined)?[5,10,15,20,25]:option.pages;
-                  var sl="<span style='margin-left:6px'>Sayfadaki Adet</span><select id='pages' class='k-pages'>";
+                  var sl="<span style='margin-left:6px'>items per page </span><select id='pages' class='k-pages'>";
                   for(var i=0;i<option.pages.length;i++)
                   {
-                      sl+="<option value='"+option.pages[i]+"'>"+option.pages[i]+"</option>";
+                      var selected="";
+                      if(option.pages[i]==option.pageSize)
+                          selected="selected";
+                      sl+="<option value='"+option.pages[i]+"' "+selected+">"+option.pages[i]+"</option>";
                   }
-                  sl+="</select> <span style='margin-left:6px'>  "+option.dataSource.length+"'te   "+option.selectedDataSource.length+" </span>";
+                  var item=(option.selectPageIndex-1)*option.pageSize;
+                  sl+="</select> <span style='margin-left:6px;float:right;padding-right:20px;'>"+item+" to "+(item+option.selectedDataSource.length)+"  of  "+option.dataSource.length+"   items</span>";
                   return sl;
               }
               else
