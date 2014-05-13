@@ -49,6 +49,8 @@ width: 250px;
     height: :300px;
     position:absolute;
     display:none;
+    float:right;
+    text-align: center;
 }
 .filterformShow{
 display:block;

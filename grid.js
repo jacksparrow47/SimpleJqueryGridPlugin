@@ -68,8 +68,10 @@
                 return str;
             },
             GetDataSource:function(){
-                if(option.dataSource.length>0)
+                if(option.dataSource.length>0){
+                    console.log("element is a div");
                     return option.dataSource;
+                }
                 if($(_htmlobject).prop('tagName').toLowerCase()=="table")
                 {
                     option.columns=new Array();
@@ -97,8 +99,19 @@
                         }
                         option.dataSource.push(obj);
                     }
+                    var newDiv="<tr><td><div id='Newtable'></div></td></tr>";
+                    _htmlobject.html(newDiv);
+                    _htmlobject=$("#Newtable");
+                    console.log("element is a table");
+                    return option.dataSource;
                 }
-               
+                else
+                {
+                    option.dataSource=new Array();
+                    console.log("element must be table");
+                    return option.dataSource;
+                }
+                
             },
            GetheaderClass:function (){
             var rt='grHeader';
